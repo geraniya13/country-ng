@@ -7,14 +7,14 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name = "country_entity")
+@Table(name = "country")
 public class CountryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "country_entity_id", nullable = false, columnDefinition = "UUID default gen_random_uuid()")
+    @Column(name = "id", nullable = false, columnDefinition = "UUID default gen_random_uuid()")
     private UUID id;
 
-    @Column(name = "country_entity_name", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "code", nullable = false)

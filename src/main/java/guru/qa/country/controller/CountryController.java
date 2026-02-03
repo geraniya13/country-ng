@@ -20,12 +20,12 @@ public class CountryController {
         this.countryService = countryService;
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public List<Country> getAllCountries(){
         return countryService.getAllCountries();
     }
 
-    @PostMapping("/createCountry")
+    @PostMapping
     public Country createCountry(@RequestBody Country country){
         if (country.name().isBlank() || country.iso().isBlank()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Country name and code cannot be blank");
@@ -33,7 +33,7 @@ public class CountryController {
         return countryService.createCountry(country);
     }
 
-    @PatchMapping("/updateCountry/{iso}")
+    @PatchMapping("/{iso}")
     public Country updateCountryById(@RequestBody Country country, @PathVariable String iso){
         if (country.name().isBlank()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Country name cannot be blank");
